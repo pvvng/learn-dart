@@ -1,13 +1,16 @@
 void main() {
-  dynamic name;
+  // dart 변수는 기본적으로 not nullable
+  // ? => null or string => nullable
+  String? name = "kim";
+  name = null;
 
-  if (name is String) {
-    name.contains("kim");
+  // null check 1
+  if (name != null) {
+    name.length;
   }
 
-  if (name is int) {
-    name.isEven;
-  }
+  // null check 2
+  name?.isEmpty;
 
   print("hello world");
 }
