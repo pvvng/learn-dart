@@ -1,7 +1,10 @@
 void main() {
-  var name = "kim";
-  var age = 23;
-  var greeting = "hello, my name is ${name + "chi"}, my age is $age";
+  var oldFriends = ["kim", "lee", "park"];
+  var newFriends = [
+    "oh",
+    "choi",
+    for (var friend in oldFriends) "❤️$friend",
+  ];
 
-  print(greeting);
+  print(newFriends);
 }
