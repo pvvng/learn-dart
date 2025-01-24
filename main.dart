@@ -1,10 +1,14 @@
 void main() {
-  var oldFriends = ["kim", "lee", "park"];
-  var newFriends = [
-    "oh",
-    "choi",
-    for (var friend in oldFriends) "❤️$friend",
+  // Object == Ts any
+  Map<String, Object> player = {
+    "name": "kim",
+    "xp": 19.99,
+    "superpower": false,
+  };
+
+  List<Map<String, Object>> players = [
+    player,
   ];
 
-  print(newFriends);
+  print(players);
 }
