@@ -1,17 +1,14 @@
+// java의 interface나 ts의 type, interface와 같은 개념인듯
+typedef IntegarList = List<int>;
+
+IntegarList reverseList(IntegarList list) {
+  var reversed = list.reversed;
+
+  return reversed.toList();
+}
+
 void main() {
-  // (QQ ??) 유사 삼항연산자
-  String capitalizeName(String? name) => name?.toUpperCase() ?? "ANON";
+  var reversed = reverseList([1, 2, 3, 4]);
 
-  var result = capitalizeName("dongwoo");
-  var resultNull = capitalizeName(null);
-
-  print(result);
-  print(resultNull);
-
-  // (QE ?=)
-  String? name;
-  // name 이 null이면 우항 값 부여
-  name ??= "temp";
-
-  print(name);
+  print(reversed);
 }
