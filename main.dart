@@ -1,7 +1,17 @@
-String sayHello(String name, int age, [String? country = 'korea']) {
-  return 'hello $name, $age, you are from $country';
-}
-
 void main() {
-  print(sayHello('kim', 24));
+  // (QQ ??) 유사 삼항연산자
+  String capitalizeName(String? name) => name?.toUpperCase() ?? "ANON";
+
+  var result = capitalizeName("dongwoo");
+  var resultNull = capitalizeName(null);
+
+  print(result);
+  print(resultNull);
+
+  // (QE ?=)
+  String? name;
+  // name 이 null이면 우항 값 부여
+  name ??= "temp";
+
+  print(name);
 }
