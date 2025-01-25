@@ -1,6 +1,11 @@
-void main() {
-  var numbers = {1, 2, 3, 4};
-  numbers.add(1);
+String sayHello(String name) {
+  return 'hello $name';
+}
 
-  print(numbers);
+// arrow function(fat arrow syntax)
+String sayHello2(String name) => 'hello $name';
+
+void main() {
+  print(sayHello('kim'));
+  print(sayHello2('lee'));
 }
