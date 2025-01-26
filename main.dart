@@ -1,7 +1,11 @@
+enum Team { red, blue }
+
+enum XPLevel { begginer, medium, pro }
+
 class Player {
   String name;
-  int xp;
-  String team;
+  XPLevel xp;
+  Team team;
 
   Player({
     required this.name,
@@ -16,12 +20,16 @@ class Player {
 }
 
 void main() {
-  var kim = Player(name: "kim", xp: 20, team: "red");
+  var kim = Player(
+    name: "kim",
+    xp: XPLevel.begginer,
+    team: Team.red,
+  );
 
   // ..은 전방의 클래스를 의미
   var lee = kim
     ..name = "lee"
-    ..xp = 10000
-    ..team = "blue"
+    ..xp = XPLevel.pro
+    ..team = Team.blue
     ..sayHello();
 }
