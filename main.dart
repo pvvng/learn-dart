@@ -3,10 +3,11 @@ class Player {
   int xp;
   String team;
 
-  Player.fromJson(Map<String, dynamic> playerJson)
-      : name = playerJson['name'],
-        xp = playerJson['xp'],
-        team = playerJson['team'];
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+  });
 
   void sayHello() {
     // this 안써도 됨
@@ -15,26 +16,12 @@ class Player {
 }
 
 void main() {
-  var apiJsonData = [
-    {
-      "name": "kim",
-      "xp": 0,
-      "team": "red",
-    },
-    {
-      "name": "lee",
-      "xp": 0,
-      "team": "blue",
-    },
-    {
-      "name": "park",
-      "xp": 0,
-      "team": "black",
-    },
-  ];
+  var kim = Player(name: "kim", xp: 20, team: "red");
 
-  apiJsonData.forEach((playerJson) {
-    var player = Player.fromJson(playerJson);
-    player.sayHello();
-  });
+  // ..은 전방의 클래스를 의미
+  var lee = kim
+    ..name = "lee"
+    ..xp = 10000
+    ..team = "blue"
+    ..sayHello();
 }
