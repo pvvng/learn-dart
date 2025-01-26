@@ -1,14 +1,15 @@
-// java의 interface나 ts의 type, interface와 같은 개념인듯
-typedef IntegarList = List<int>;
+class Player {
+  final String name = "dongwoo";
+  int xp = 1500;
 
-IntegarList reverseList(IntegarList list) {
-  var reversed = list.reversed;
-
-  return reversed.toList();
+  void sayHello() {
+    // this 안써도 됨
+    print('hello my name is $name');
+  }
 }
 
 void main() {
-  var reversed = reverseList([1, 2, 3, 4]);
+  var player1 = Player();
 
-  print(reversed);
+  player1.sayHello();
 }
