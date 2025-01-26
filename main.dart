@@ -1,30 +1,12 @@
 class Player {
-  final String name;
+  String name;
+  int xp;
   String team;
-  int xp, age;
 
-  // constructor method
-  Player({
-    required this.name,
-    required this.xp,
-    required this.team,
-    required this.age,
-  });
-
-  // Player class를 초기화하는 named constructor method
-  Player.createBluePlayer({
-    required String name,
-    required int age,
-  })  : this.age = age,
-        this.name = name,
-        this.team = 'blue',
-        this.xp = 0;
-
-  Player.createRedPlayer(String name, int age)
-      : this.age = age,
-        this.name = name,
-        this.team = 'red',
-        this.xp = 0;
+  Player.fromJson(Map<String, dynamic> playerJson)
+      : name = playerJson['name'],
+        xp = playerJson['xp'],
+        team = playerJson['team'];
 
   void sayHello() {
     // this 안써도 됨
@@ -33,10 +15,26 @@ class Player {
 }
 
 void main() {
-  var playerBlue = Player.createBluePlayer(
-    name: "kim",
-    age: 24,
-  );
+  var apiJsonData = [
+    {
+      "name": "kim",
+      "xp": 0,
+      "team": "red",
+    },
+    {
+      "name": "lee",
+      "xp": 0,
+      "team": "blue",
+    },
+    {
+      "name": "park",
+      "xp": 0,
+      "team": "black",
+    },
+  ];
 
-  var playerRed = Player.createRedPlayer("kim", 24);
+  apiJsonData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
 }
