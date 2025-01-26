@@ -1,9 +1,16 @@
 class Player {
   final String name;
   int xp;
+  String team;
+  int age;
 
-  // // constructor method
-  Player(this.name, this.xp);
+  // constructor method
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
 
   void sayHello() {
     // this 안써도 됨
@@ -12,8 +19,10 @@ class Player {
 }
 
 void main() {
-  var player1 = Player("kim", 1500);
-  player1.sayHello();
-  var player2 = Player("lee", 500);
-  player2.sayHello();
+  var player1 = Player(
+    name: "kim",
+    xp: 1500,
+    team: 'red',
+    age: 24,
+  );
 }
