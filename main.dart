@@ -1,8 +1,14 @@
+// java의 interface와 같음
+// 추상 클래스는 특정 메서드를 갖도록 강제함
+abstract class Human {
+  void walk();
+}
+
 enum Team { red, blue }
 
 enum XPLevel { begginer, medium, pro }
 
-class Player {
+class Player extends Human {
   String name;
   XPLevel xp;
   Team team;
@@ -12,6 +18,10 @@ class Player {
     required this.xp,
     required this.team,
   });
+
+  void walk() {
+    print("$name is walking..");
+  }
 
   void sayHello() {
     // this 안써도 됨
