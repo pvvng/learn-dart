@@ -1,45 +1,35 @@
-// java의 interface와 같음
-// 추상 클래스는 특정 메서드를 갖도록 강제함
-abstract class Human {
-  void walk();
+class Human {
+  final String name;
+
+  Human(this.name);
+
+  void sayHello() {
+    print("hi my name is $name");
+  }
 }
 
 enum Team { red, blue }
 
-enum XPLevel { begginer, medium, pro }
-
 class Player extends Human {
-  String name;
-  XPLevel xp;
-  Team team;
+  final Team team;
 
+  // super 키워드를 통해 부모 클래스와 상호작용 가능
   Player({
-    required this.name,
-    required this.xp,
     required this.team,
-  });
+    required String name,
+  }) : super(name);
 
-  void walk() {
-    print("$name is walking..");
-  }
-
+  @override
   void sayHello() {
-    // this 안써도 됨
-    print('hello my name is $name');
+    // super를 통해 부모 메서드나 프로퍼티에 접근 가능
+    super.sayHello();
+    print("i play for my team $team");
   }
 }
 
 void main() {
-  var kim = Player(
-    name: "kim",
-    xp: XPLevel.begginer,
+  var player = Player(
     team: Team.red,
+    name: "kim",
   );
-
-  // ..은 전방의 클래스를 의미
-  var lee = kim
-    ..name = "lee"
-    ..xp = XPLevel.pro
-    ..team = Team.blue
-    ..sayHello();
 }
